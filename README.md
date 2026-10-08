@@ -1,5 +1,8 @@
 # excuse-js
 
+[![npm version](https://img.shields.io/npm/v/%40deployanyway%2Fexcuse-js)](https://www.npmjs.com/package/@deployanyway/excuse-js)
+[![CI](https://github.com/DeployAnyway/excuse-js/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/DeployAnyway/excuse-js/actions/workflows/ci.yml)
+
 A seeded developer excuse generator for bugs, builds, and deployments. Finally, a dependency that takes the blame.
 
 ```text
