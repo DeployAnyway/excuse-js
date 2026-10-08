@@ -147,6 +147,16 @@ node bin/cli.js deployment --report --json
 
 --report cannot be combined with --count or --list. Existing string and batch JSON output stays available. No stdin is needed: this generator has no external input payload. Do not use jokes as incident reports.
 
+## Try the candidate from source
+
+```sh
+git clone --branch feature/quality-standard https://github.com/DeployAnyway/excuse-js.git
+cd excuse-js
+npm ci
+npm run build
+node bin/cli.js --help
+```
+
 ## Candidate quality standard
 
 The 0.3 candidate provides useful declaration types, ESM/CommonJS exports, installed-archive checks, and coverage gates (90% statements/lines/functions, 85% branches). CI covers Linux Node 22/24 and Windows/macOS Node 24. Node 22.13+ is required. No runtime dependencies, telemetry or network requests.
