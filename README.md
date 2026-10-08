@@ -8,7 +8,7 @@ The edge case moved to the center and brought furniture.
 
 ## Installation
 
-Version 0.1.0 is available on npm. Requires Node 22 or later.
+Available on npm. Requires Node 22 or later.
 You can also run from source with Node 22 or 24:
 
 ```sh
