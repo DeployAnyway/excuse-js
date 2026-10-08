@@ -42,3 +42,19 @@ export function excuse(category = "deployment", options = {}) {
   }
   return phrases[key][index];
 }
+
+/** Generate a batch without repeats until the category pool is exhausted. */
+export function excuseBatch(category = "deployment", options = {}) {
+  if (!options || typeof options !== "object" || Array.isArray(options))
+    throw new TypeError("Options must be an object.");
+  const count = options.count ?? 3;
+  if (!Number.isSafeInteger(count) || count < 1 || count > 20)
+    throw new RangeError("count must be an integer between 1 and 20.");
+  const first = excuse(category, { seed: options.seed });
+  const pool = phrases[category.trim().toLowerCase()];
+  const start = pool.indexOf(first);
+  return Array.from(
+    { length: count },
+    (_, i) => pool[(start + i) % pool.length],
+  );
+}
