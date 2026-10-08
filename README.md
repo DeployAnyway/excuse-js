@@ -112,3 +112,17 @@ See [CONTRIBUTING.md](CONTRIBUTING.md). Useful first, funny second.
 - [doggo-log](https://github.com/DeployAnyway/doggo-log)
 - [ship-it-meter](https://github.com/DeployAnyway/ship-it-meter)
 - [bro-say](https://github.com/DeployAnyway/bro-say)
+
+## Meeting preparation mode
+
+Generate 1–20 excuses with `excuseBatch(category, { count, seed })`. A batch cycles through the category without repeats until its pool is exhausted. Seeds keep the starting point repeatable. CLI `--json` returns a string or array.
+
+```sh
+npx @deployanyway/excuse-js deployment --count 3 --seed demo
+```
+
+API (import the named functions from this package):
+
+```js
+excuseBatch("deployment", { count: 3, seed: "demo" });
+```
