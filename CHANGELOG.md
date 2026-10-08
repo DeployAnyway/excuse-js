@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.0 — 2026-10-08
+
+- Useful structured API/CLI additions described in README.
+- TypeScript declarations, CommonJS entry, coverage gates and installed archive checks.
+- Linux Node 22/24 plus Windows/macOS Node 24 CI.
+
 ## 0.2.0 — 2026-10-08
 
 - Meeting preparation mode: Generate 1–20 excuses with `excuseBatch(category, { count, seed })`. A batch cycles through the category without repeats until its pool is exhausted. Seeds keep the starting point repeatable. CLI `--json` returns a string or array.

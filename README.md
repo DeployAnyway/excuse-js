@@ -1,5 +1,7 @@
 # excuse-js
 
+> **Version 0.3.0:** install from npm with Node 22.13+ or Node 24. See MIGRATION.md for changes from 0.2.0.
+
 [![npm version](https://img.shields.io/npm/v/%40deployanyway%2Fexcuse-js)](https://www.npmjs.com/package/@deployanyway/excuse-js)
 [![CI](https://github.com/DeployAnyway/excuse-js/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/DeployAnyway/excuse-js/actions/workflows/ci.yml)
 
@@ -126,3 +128,41 @@ API (import the named functions from this package):
 ```js
 excuseBatch("deployment", { count: 3, seed: "demo" });
 ```
+
+## Jokes with a useful exit strategy
+
+```js
+import { excuseReport } from "@deployanyway/excuse-js";
+const report = excuseReport("testing", { seed: 42 });
+console.log(report.excuse);
+console.log(report.nextStep);
+```
+
+The structured report pairs the original comic excuse with a category-specific, honest next step. It does not invent evidence or recommend lying. Seeds are stateless and version-specific; numeric 42 differs from the CLI's string seed "42".
+
+```sh
+node bin/cli.js testing --report --seed demo
+node bin/cli.js deployment --report --json
+```
+
+--report cannot be combined with --count or --list. Existing string and batch JSON output stays available. No stdin is needed: this generator has no external input payload. Do not use jokes as incident reports.
+
+## Run from source
+
+```sh
+git clone --branch main https://github.com/DeployAnyway/excuse-js.git
+cd excuse-js
+npm ci
+npm run build
+node bin/cli.js --help
+```
+
+## Candidate quality standard
+
+Version 0.3 provides useful declaration types, ESM/CommonJS exports, installed-archive checks, and coverage gates (90% statements/lines/functions, 85% branches). CI covers Linux Node 22/24 and Windows/macOS Node 24. Node 22.13+ is required. No runtime dependencies, telemetry or network requests.
+
+From a source checkout: npm ci, npm run build, npm run coverage, npm run test:types, npm run verify:package. Pack verification installs a temporary local archive and checks module entries, types, executable and offline npm exec.
+
+[Contribution guide](CONTRIBUTING.md) · [Conduct](CODE_OF_CONDUCT.md) · [Security](SECURITY.md) · [Roadmap](ROADMAP.md) · [Migration](MIGRATION.md).
+
+**Tools for developers who probably know better.** Software nobody requested, built with questionable priorities, and shipped with absolute confidence!
