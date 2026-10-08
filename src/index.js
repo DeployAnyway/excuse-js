@@ -1,4 +1,36 @@
 import { phrases } from "./excuses.js";
+const nextSteps = {
+  deployment:
+    "Check the release diff and rollback plan before delivering this line.",
+  testing:
+    "Reproduce the failure and add a regression test. The punchline is optional.",
+  build:
+    "Read the first build error, verify dependencies, then rebuild. The compiler does not accept applause.",
+  production:
+    "Check health metrics and the latest release diff; confirm rollback before improving the punchline.",
+  bug: "Save a minimal reproduction and add a regression test. The bug would prefer neither.",
+  api: "Inspect the status, payload and timeout contract. The endpoint is not communicating through vibes.",
+  database:
+    "Check connectivity and migration state before retrying. The data deserves a backup, not a speech.",
+  deadline:
+    "Name the smallest deliverable and communicate the revised estimate. Calendars cannot compile optimism.",
+  network:
+    "Check DNS, connectivity and timeout settings. Blame needs a packet capture.",
+  demo: "Rehearse the happy path and prepare an offline fallback. The projector can smell confidence.",
+};
+
+/** A comic excuse paired with an honest, actionable follow-up. */
+export function excuseReport(category = "deployment", options = {}) {
+  const text = excuse(category, options);
+  const key = category.trim().toLowerCase();
+  return {
+    category: key,
+    excuse: text,
+    nextStep:
+      nextSteps[key] ??
+      "Read the evidence, name an owner, and document the next small fix.",
+  };
+}
 
 /** Return the available lowercase category names as a fresh array. */
 export function categories() {
