@@ -1,6 +1,6 @@
 # excuse-js
 
-Original developer excuses for when the technology needs a spokesperson.
+A seeded developer excuse generator for bugs, builds, and deployments. Finally, a dependency that takes the blame.
 
 ```text
 The edge case moved to the center and brought furniture.
