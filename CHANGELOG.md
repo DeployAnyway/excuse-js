@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.0 — Unreleased
+## 0.1.0 — 2026-10-08
 
 - 33 original workplace-safe excuses across 11 categories.
 - Library API, stateless seeded selection, and CLI with category listing.

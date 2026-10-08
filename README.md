@@ -8,17 +8,18 @@ The edge case moved to the center and brought furniture.
 
 ## Installation
 
-Not published to npm yet. Try version 0.1.0 from source with Node 22 or 24:
+Version 0.1.0 is available on npm. Requires Node 22 or later.
+You can also run from source with Node 22 or 24:
 
 ```sh
 git clone https://github.com/DeployAnyway/excuse-js.git
 cd excuse-js
-git checkout feature/initial-mvp
+git checkout main
 npm ci
 node bin/cli.js bug
 ```
 
-After an approved release: `npm install @deployanyway/excuse-js`.
+Install from npm: `npm install @deployanyway/excuse-js`.
 
 ## Quick start
 
@@ -36,7 +37,7 @@ console.log(categories());
 node bin/cli.js deployment --seed demo
 ```
 
-After publication: `npx @deployanyway/excuse-js deployment --seed demo`.
+Run with npx: `npx @deployanyway/excuse-js deployment --seed demo`.
 
 ## API and options
 
