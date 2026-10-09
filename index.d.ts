@@ -30,3 +30,37 @@ export function excuseReport(
 ): ExcuseReport;
 
 export function listExcuses(category?: Category): string[];
+export type IncidentStatus =
+  "investigating" | "identified" | "monitoring" | "resolved";
+export interface IncidentFacts {
+  status?: IncidentStatus;
+  service?: string | null;
+  impact?: string | null;
+  action?: string | null;
+  owner?: string | null;
+  nextUpdate?: string | null;
+}
+export interface IncidentOptions extends ExcuseOptions {
+  audience?: "public" | "internal";
+  humor?: boolean;
+  category?: Category;
+  now?: string;
+}
+export interface IncidentUpdate {
+  complete: boolean;
+  status: IncidentStatus;
+  audience: "public" | "internal";
+  service: string | null;
+  impact: string | null;
+  action: string | null;
+  owner: string | null;
+  nextUpdate: string | null;
+  missing: string[];
+  overdue: boolean;
+  comicRelief?: string;
+  message: string;
+}
+export function incidentUpdate(
+  facts?: IncidentFacts,
+  options?: IncidentOptions,
+): IncidentUpdate;

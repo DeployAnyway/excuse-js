@@ -9,3 +9,9 @@ Install 0.3.0 with npm. Seeds and exact humorous wording are version-specific. D
 132 original phrases across eleven categories; twelve unique items before batch cycling; independent listExcuses catalogs and CLI --catalog; specific conflict-resolution next step.
 
 Seeded selections are version-specific and may differ after catalog expansion. Pin the version for exact reproducibility. Existing user messages and API entry points remain supported.
+
+## 0.4.0 to stable 1.0.0
+
+Incident drafting is additive and does not change seeded excuse APIs. Public incident output defaults to humor off. Existing excuse/--report behavior remains explicitly humorous.
+
+See README for exact contracts, bounds and failure behavior.

@@ -1,5 +1,40 @@
 # excuse-js
 
+## Own It: incident updates with accountable facts (1.0.0)
+
+incidentUpdate(facts, options) drafts an honest status update from supplied service, impact, action, owner and nextUpdate. Missing fields stay explicit; it invents no impact, remediation, owner or ETA. Default public output contains no comic relief.
+
+```js
+import { incidentUpdate } from "@deployanyway/excuse-js";
+const update = incidentUpdate({
+  status: "identified",
+  service: "API",
+  impact: "Some requests return 503",
+  action: "Rolling back the latest release",
+  owner: "On-call developer",
+  nextUpdate: "2026-10-09T02:15:00Z",
+});
+if (!update.complete) console.error("Missing facts:", update.missing);
+console.log(update.message); // draft only; no message is sent
+```
+
+Statuses: investigating (default), identified, monitoring, resolved. nextUpdate and optional now use UTC ISO timestamps. Missing unresolved nextUpdate is reported; a resolved status does not require a next update. overdue marks a scheduled update in the past. complete reflects required facts, not a verification that an incident is fixed. Strings are bounded and terminal control characters are removed. Result fields are copied and expose message/missing/complete/overdue.
+
+For internal updates only, opt into {audience: 'internal', humor: true, seed: 'demo', category: 'production'}. Comic relief is labeled separately and leaves facts unchanged. Public + humor throws rather than quietly adding a joke. Internal jokes are original catalog content; exact wording is version-specific.
+
+```sh
+printf '%s' '{"service":"API","impact":"Some requests fail","action":"Investigating","owner":"On-call","nextUpdate":"2026-10-09T02:15:00Z"}' | excuse-js --incident --json --require-complete
+node node_modules/@deployanyway/excuse-js/examples/own-it.mjs incident.json
+```
+
+--incident accepts JSON stdin (256 KiB), --audience public/internal, --humor, --seed, --now and --json. --require-complete exits 1 when facts are missing; default draft output exits 0 and invalid input exits 2. Neither the API nor CLI posts an update. Review facts before sharing.
+
+## Stable v1 contract
+
+Node 22.13+ or Node 24. MIT licensed. CLI flags, structured fields, ESM/CommonJS exports and declarations are covered by tests and installed-package checks. Existing 0.4 APIs remain available except the explicitly documented doggo-log redaction/text-context changes. Future incompatible public API changes require a major release; callers should consume structured fields rather than parse jokes. Exact humorous wording and seeded catalog choices are version-specific. No telemetry, external API keys or network service is needed for core use.
+
+Run npm test, npm run lint, npm run format:check, npm run coverage, npm run test:types and npm run verify:package from a source checkout. Runnable examples are shipped under examples/. The root demo is https://deployanyway.github.io/.
+
 ## A meeting-sized library (0.4.0)
 
 132 original workplace-safe excuses: twelve distinct phrases in each of eleven categories. Seeded batches avoid repeats until all twelve phrases in the category have been used; larger batches cycle. Reports pair the joke with an honest next step. The jokes are for humor, not hiding incidents or misleading teammates.
