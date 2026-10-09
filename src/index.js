@@ -1,5 +1,7 @@
 import { phrases } from "./excuses.js";
 const nextSteps = {
+  "merge-conflict":
+    "Understand both changes, resolve the conflict deliberately, then run tests for the combined behavior. Git does not accept a coin toss.",
   deployment:
     "Check the release diff and rollback plan before delivering this line.",
   testing:
@@ -89,4 +91,14 @@ export function excuseBatch(category = "deployment", options = {}) {
     { length: count },
     (_, i) => pool[(start + i) % pool.length],
   );
+}
+
+/** Read a category without consuming randomness; the returned catalog is independent. */
+export function listExcuses(category = "deployment") {
+  if (typeof category !== "string" || !category.trim())
+    throw new TypeError("Category must be a nonempty string.");
+  const key = category.trim().toLowerCase();
+  if (!Object.hasOwn(phrases, key))
+    throw new RangeError("Unknown category: " + category);
+  return [...phrases[key]];
 }

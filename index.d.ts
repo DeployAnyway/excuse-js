@@ -28,3 +28,5 @@ export function excuseReport(
   category?: Category,
   options?: ExcuseOptions,
 ): ExcuseReport;
+
+export function listExcuses(category?: Category): string[];

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.0
+
+132 original workplace-safe excuses: twelve distinct phrases in each of eleven categories. Seeded batches avoid repeats until all twelve phrases in the category have been used; larger batches cycle. Reports pair the joke with an honest next step. The jokes are for humor, not hiding incidents or misleading teammates.
+
+```sh
+
+
 ## 0.3.0 — 2026-10-08
 
 - Useful structured API/CLI additions described in README.
@@ -22,3 +29,4 @@
 - 33 original workplace-safe excuses across 11 categories.
 - Library API, stateless seeded selection, and CLI with category listing.
 - Tests, linting, formatting, and CI on Node 22/24.
+```
