@@ -78,7 +78,7 @@ test("invalid inputs and prototype keys", () => {
 test("CLI help, version, list, default, and seed agreement", () => {
   assert.equal(cli("--help").status, 0);
   assert.ok(cli("--help").stdout.includes("Usage:"));
-  assert.equal(cli("--version").stdout.trim(), "0.4.0");
+  assert.equal(cli("--version").stdout.trim(), "1.0.0");
   assert.deepEqual(cli("--list").stdout.trim().split(/\r?\n/), categories());
   assert.equal(cli().status, 0);
   assert.ok(phrases.deployment.includes(cli().stdout.trim()));

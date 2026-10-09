@@ -102,3 +102,4 @@ export function listExcuses(category = "deployment") {
     throw new RangeError("Unknown category: " + category);
   return [...phrases[key]];
 }
+export { incidentUpdate } from "./incident.js";

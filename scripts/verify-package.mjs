@@ -108,6 +108,28 @@ try {
     ],
     temp,
   );
+  assert.ok(
+    pack.files.some((f) => f.path === "examples/own-it.mjs"),
+    "Runnable example must ship",
+  );
+  assert.equal(
+    run(
+      [
+        "--input-type=module",
+        "-e",
+        "import * as api from '@deployanyway/excuse-js';const r=api.incidentUpdate({service:'api',impact:'Some failures',action:'Investigating',owner:'On-call',nextUpdate:'2026-10-10T00:00:00Z'},{now:'2026-10-09T00:00:00Z'}); if(!r.complete||r.comicRelief)throw new Error('Incident contract lost'); console.log(JSON.stringify(r));",
+      ],
+      temp,
+    ),
+    run(
+      [
+        "--input-type=commonjs",
+        "-e",
+        "const api=require('@deployanyway/excuse-js');const r=api.incidentUpdate({service:'api',impact:'Some failures',action:'Investigating',owner:'On-call',nextUpdate:'2026-10-10T00:00:00Z'},{now:'2026-10-09T00:00:00Z'}); if(!r.complete||r.comicRelief)throw new Error('Incident contract lost'); console.log(JSON.stringify(r));",
+      ],
+      temp,
+    ),
+  );
   console.log(
     JSON.stringify(
       {

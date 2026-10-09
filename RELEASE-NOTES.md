@@ -1,9 +1,11 @@
-# 0.4.0 — 2026-10-08
+# 1.0.0 — Own It: incident updates with accountable facts
 
-132 original phrases across eleven categories; twelve unique items before batch cycling; independent listExcuses catalogs and CLI --catalog; specific conflict-resolution next step.
+Seeded developer humor and factual incident status updates with owners and next steps. Finally, a dependency that takes the blame responsibly.
 
-Requires Node 22.13+ or 24. See README for copyable CLI and API examples. All required source, type, coverage and installed archive checks passed locally; CI must pass on the final PR head before merging. Original content, MIT code, no backend calls from the libraries.
+Incident drafting is additive and does not change seeded excuse APIs. Public incident output defaults to humor off. Existing excuse/--report behavior remains explicitly humorous.
 
-## Compatibility
+Install: `npm install @deployanyway/excuse-js@1.0.0`
 
-Expanded catalogs can change seeded choices from 0.3.0. Pin the version when exact output matters; selection is repeatable within this release.
+See README for runnable API/CLI examples, supported formats, defaults and limitations. Existing catalogs remain. Core APIs require no online services. Root demo: https://deployanyway.github.io/.
+
+Validation is recorded in the v1 release report after final CI and installed-package verification.

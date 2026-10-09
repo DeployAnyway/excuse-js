@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0
+
+- Own It: incident updates with accountable facts.
+- Typed API, CLI integration, runnable codebase example and meaningful workflow tests.
+- Stable contracts and migration guidance; original humor stays around accurate facts.
+
 ## 0.4.0
 
 132 original workplace-safe excuses: twelve distinct phrases in each of eleven categories. Seeded batches avoid repeats until all twelve phrases in the category have been used; larger batches cycle. Reports pair the joke with an honest next step. The jokes are for humor, not hiding incidents or misleading teammates.
