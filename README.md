@@ -1,6 +1,29 @@
 # excuse-js
 
-> **Version 0.3.0:** install from npm with Node 22.13+ or Node 24. See MIGRATION.md for changes from 0.2.0.
+## A meeting-sized library (0.4.0)
+
+132 original workplace-safe excuses: twelve distinct phrases in each of eleven categories. Seeded batches avoid repeats until all twelve phrases in the category have been used; larger batches cycle. Reports pair the joke with an honest next step. The jokes are for humor, not hiding incidents or misleading teammates.
+
+```sh
+npx @deployanyway/excuse-js testing --count 12 --seed demo
+npx @deployanyway/excuse-js production --report --seed demo
+npx @deployanyway/excuse-js network --catalog --json
+```
+
+```js
+import {
+  listExcuses,
+  excuseBatch,
+  excuseReport,
+} from "@deployanyway/excuse-js";
+console.log(listExcuses("testing"));
+console.log(excuseBatch("demo", { count: 5, seed: "rehearsal" }));
+console.log(excuseReport("production", { seed: "incident" }));
+```
+
+`listExcuses(category?)` returns a fresh copy of the category catalog without consuming randomness. CLI `--catalog` accepts a category and optional `--json`, not seed, count or report. Catalog expansion changes which phrase a seed chooses compared with 0.3.0; pin the version for exact reproducibility.
+
+> **Version 0.4.0:** install from npm with Node 22.13+ or Node 24. See MIGRATION.md for changes from 0.2.0.
 
 [![npm version](https://img.shields.io/npm/v/%40deployanyway%2Fexcuse-js)](https://www.npmjs.com/package/@deployanyway/excuse-js)
 [![CI](https://github.com/DeployAnyway/excuse-js/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/DeployAnyway/excuse-js/actions/workflows/ci.yml)
@@ -63,7 +86,7 @@ catalog changes between versions; this is not a cryptographic generator.
 ## Categories
 
 deployment, build, production, bug, api, database, deadline, testing, network,
-merge-conflict, demo. Each starts with three original, workplace-safe phrases.
+merge-conflict, demo. Each has twelve original, workplace-safe phrases.
 
 Custom runtime categories are deferred. Contributors can extend the data file
 without changing the selection logic.

@@ -43,7 +43,7 @@ for (const category of Object.keys(phrases)) {
 }
 test("all phrases are unique across categories", () => {
   const all = Object.values(phrases).flat();
-  assert.equal(new Set(all).size, 33);
+  assert.equal(new Set(all).size, 132);
 });
 test("default and normalized categories", () => {
   assert.ok(phrases.deployment.includes(excuse()));
@@ -62,7 +62,7 @@ test("seeded output is stable, stateless, and reaches multiple choices", () => {
   // Golden fixture catches accidental algorithm or catalog changes.
   assert.equal(
     excuse("bug", { seed: "demo" }),
-    "The bug declined to reproduce until the screen-sharing session began.",
+    "The issue disappeared while screen sharing and returned to clock in afterward.",
   );
 });
 test("invalid inputs and prototype keys", () => {
@@ -78,7 +78,7 @@ test("invalid inputs and prototype keys", () => {
 test("CLI help, version, list, default, and seed agreement", () => {
   assert.equal(cli("--help").status, 0);
   assert.ok(cli("--help").stdout.includes("Usage:"));
-  assert.equal(cli("--version").stdout.trim(), "0.3.0");
+  assert.equal(cli("--version").stdout.trim(), "0.4.0");
   assert.deepEqual(cli("--list").stdout.trim().split(/\r?\n/), categories());
   assert.equal(cli().status, 0);
   assert.ok(phrases.deployment.includes(cli().stdout.trim()));

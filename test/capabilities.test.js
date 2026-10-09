@@ -5,9 +5,9 @@ import { spawnSync } from "node:child_process";
 import { excuseBatch, excuse, categories } from "../src/index.js";
 test("seeded batches are stable, independent, and cycle only after pool exhaustion", () => {
   for (const category of categories()) {
-    const batch = excuseBatch(category, { count: 6, seed: "demo" });
-    assert.equal(new Set(batch.slice(0, 3)).size, 3);
-    assert.equal(batch[0], batch[3]);
+    const batch = excuseBatch(category, { count: 20, seed: "demo" });
+    assert.equal(new Set(batch.slice(0, 12)).size, 12);
+    assert.equal(batch[0], batch[12]);
     assert.equal(batch[0], excuse(category, { seed: "demo" }));
     batch[0] = "changed";
     assert.notEqual(excuseBatch(category, { seed: "demo" })[0], "changed");
